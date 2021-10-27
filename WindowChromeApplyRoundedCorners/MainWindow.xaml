@@ -1,12 +1,88 @@
-﻿<Window x:Class="WindowChromeApplyRoundedCorners.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WindowChromeApplyRoundedCorners"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+﻿<Window
+    x:Class="WindowChromeApplyRoundedCorners.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WindowChromeApplyRoundedCorners"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <Style x:Key="DescriptionStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#777777" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+        </Style>
+    </Window.Resources>
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="White" />
+                <GradientStop Offset="1" Color="#FFD2E9FF" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
 
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="DWM_WINDOW_CORNER_PREFERENCE" />
+                <ListBox Grid.Row="1" SelectionMode="Single">
+                    <ListBoxItem>
+                        <StackPanel>
+                            <TextBlock Text="DWMWCP_DEFAULT" />
+                            <TextBlock Style="{StaticResource DescriptionStyle}" Text="Let the system decide whether or not to round window corners." />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <StackPanel>
+                            <TextBlock Text="DWMWCP_DONOTROUND" />
+                            <TextBlock Style="{StaticResource DescriptionStyle}" Text="Never round window corners." />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <StackPanel>
+                            <TextBlock Text="DWMWCP_ROUND" />
+                            <TextBlock Style="{StaticResource DescriptionStyle}" Text="Round the corners if appropriate." />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <StackPanel>
+                            <TextBlock Text="DWMWCP_ROUNDSMALL" />
+                            <TextBlock Style="{StaticResource DescriptionStyle}" Text="Round the corners if appropriate, with a small radius." />
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
+
+                <TextBlock Grid.Column="1" Text="Style" />
+                <StackPanel Grid.Row="1" Grid.Column="1">
+                    <ListBox SelectionMode="Single">
+                        <ListBoxItem Content="System Window" />
+                        <ListBoxItem Content="WindowChrome" />
+                        <ListBoxItem Content="Styled WindowChrome" />
+                    </ListBox>
+
+                    <TextBlock Text="Border" />
+                    <ListBox SelectionMode="Single">
+                        <ListBoxItem Content="1 pixel" />
+                        <ListBoxItem Content="2 pixels" />
+                        <ListBoxItem Content="10 pixels" />
+                    </ListBox>
+                </StackPanel>
+                <Button
+                    Grid.RowSpan="2"
+                    Grid.Column="2"
+                    Content="Show Window" />
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
