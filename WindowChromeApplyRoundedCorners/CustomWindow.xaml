@@ -147,7 +147,7 @@
 
 
 
-        <!--<Style x:Key="WindowStyle" TargetType="{x:Type local:CustomWindow}">
+        <Style x:Key="WindowStyle" TargetType="{x:Type local:CustomWindow}">
 
             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" />
             <Setter Property="Background" Value="#FFF1F1F1" />
@@ -169,95 +169,98 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type local:CustomWindow}">
-                        <Border
-                            x:Name="WindowBorder"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
-                            <Grid x:Name="LayoutRoot" Background="{TemplateBinding Background}">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="*" />
-                                </Grid.RowDefinitions>
-                                <Grid
-                                    x:Name="WindowTitlePanel"
-                                    Height="{Binding Path=(SystemParameters.WindowNonClientFrameThickness).Top}"
-                                    Margin="0,-1,0,0"
-                                    Background="{TemplateBinding BorderBrush}">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="Auto" />
-                                    </Grid.ColumnDefinitions>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid
+                                x:Name="WindowTitlePanel"
+                                Height="{Binding Path=(SystemParameters.WindowNonClientFrameThickness).Top}"
+                                Margin="0,-1,0,0"
+                                Background="{TemplateBinding BorderBrush}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
 
-                                    <StackPanel Orientation="Horizontal">
-                                        <Image
-                                            Width="{x:Static SystemParameters.SmallIconWidth}"
-                                            Height="{x:Static SystemParameters.SmallIconHeight}"
-                                            Margin="5,0,0,0"
-                                            VerticalAlignment="Center"
-                                            Source="{TemplateBinding Icon}"
-                                            Visibility="{Binding Icon, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={StaticResource EmptyObjectToVisibilityConverter}}"
-                                            WindowChrome.IsHitTestVisibleInChrome="True">
-                                            <Behaviors:Interaction.Triggers>
-                                                <Behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                                                    <Behaviors:InvokeCommandAction Command="{x:Static SystemCommands.ShowSystemMenuCommand}" />
-                                                </Behaviors:EventTrigger>
-                                                <Behaviors:EventTrigger EventName="MouseRightButtonDown">
-                                                    <Behaviors:InvokeCommandAction Command="{x:Static SystemCommands.ShowSystemMenuCommand}" />
-                                                </Behaviors:EventTrigger>
-                                            </Behaviors:Interaction.Triggers>
-                                        </Image>
-
-
-                                        <ContentControl
-                                            Margin="5,0,0,0"
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center"
-                                            Content="{TemplateBinding Title}"
-                                            FontSize="{DynamicResource {x:Static SystemFonts.CaptionFontSizeKey}}"
-                                            Foreground="White"
-                                            IsTabStop="False" />
-                                    </StackPanel>
-                                    <StackPanel
-                                        x:Name="WindowCommandButtonsPanel"
-                                        Grid.Column="1"
-                                        Margin="0,0,-1,0"
-                                        HorizontalAlignment="Right"
-                                        VerticalAlignment="Stretch"
-                                        Background="Transparent"
-                                        Orientation="Horizontal"
+                                <StackPanel Orientation="Horizontal">
+                                    <Image
+                                        Width="{x:Static SystemParameters.SmallIconWidth}"
+                                        Height="{x:Static SystemParameters.SmallIconHeight}"
+                                        Margin="5,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Source="{TemplateBinding Icon}"
+                                        Visibility="{Binding Icon, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={StaticResource EmptyObjectToVisibilityConverter}}"
                                         WindowChrome.IsHitTestVisibleInChrome="True">
-                                        <ContentPresenter Content="{Binding FunctionBar, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}" Focusable="False" />
-                                        <Button x:Name="MinimizeButton" Style="{StaticResource MinimizeButtonStyle}" />
-                                        <Grid Margin="1,0,1,0">
-                                            <Button
-                                                x:Name="RestoreButton"
-                                                Style="{StaticResource RestoreButtonStyle}"
-                                                Visibility="Collapsed" />
-                                            <Button x:Name="MaximizeButton" Style="{StaticResource MaximizeButtonStyle}" />
-                                        </Grid>
-                                        <Button
-                                            x:Name="CloseButton"
-                                            Background="Red"
-                                            Style="{StaticResource CloseButtonStyle}" />
-                                    </StackPanel>
-                                </Grid>
-                                <AdornerDecorator Grid.Row="1" KeyboardNavigation.IsTabStop="False">
-                                    <ContentPresenter
-                                        x:Name="MainContentPresenter"
-                                        Content="{TemplateBinding Content}"
-                                        KeyboardNavigation.TabNavigation="Cycle" />
-                                </AdornerDecorator>
-                                <ResizeGrip
-                                    x:Name="ResizeGrip"
-                                    Grid.Row="1"
-                                    HorizontalAlignment="Right"
-                                    VerticalAlignment="Bottom"
-                                    IsTabStop="False"
-                                    Visibility="Hidden"
-                                    WindowChrome.ResizeGripDirection="BottomRight" />
-                            </Grid>
-                        </Border>
+                                        <Behaviors:Interaction.Triggers>
+                                            <Behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                                                <Behaviors:InvokeCommandAction Command="{x:Static SystemCommands.ShowSystemMenuCommand}" />
+                                            </Behaviors:EventTrigger>
+                                            <Behaviors:EventTrigger EventName="MouseRightButtonDown">
+                                                <Behaviors:InvokeCommandAction Command="{x:Static SystemCommands.ShowSystemMenuCommand}" />
+                                            </Behaviors:EventTrigger>
+                                        </Behaviors:Interaction.Triggers>
+                                    </Image>
 
+
+                                    <ContentControl
+                                        Margin="5,0,0,0"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Content="{TemplateBinding Title}"
+                                        FontSize="{DynamicResource {x:Static SystemFonts.CaptionFontSizeKey}}"
+                                        Foreground="White"
+                                        IsTabStop="False" />
+                                </StackPanel>
+                                <StackPanel
+                                    x:Name="WindowCommandButtonsPanel"
+                                    Grid.Column="1"
+                                    Margin="0,0,-1,0"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Stretch"
+                                    Background="Transparent"
+                                    Orientation="Horizontal"
+                                    WindowChrome.IsHitTestVisibleInChrome="True">
+                                    <ContentPresenter Content="{Binding FunctionBar, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}" Focusable="False" />
+                                    <Button x:Name="MinimizeButton" Style="{StaticResource MinimizeButtonStyle}" />
+                                    <Grid Margin="1,0,1,0">
+                                        <Button
+                                            x:Name="RestoreButton"
+                                            Style="{StaticResource RestoreButtonStyle}"
+                                            Visibility="Collapsed" />
+                                        <Button x:Name="MaximizeButton" Style="{StaticResource MaximizeButtonStyle}" />
+                                    </Grid>
+                                    <Button
+                                        x:Name="CloseButton"
+                                        Background="Red"
+                                        Style="{StaticResource CloseButtonStyle}" />
+                                </StackPanel>
+                            </Grid>
+                            <Border
+                                x:Name="WindowBorder"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                                <Grid x:Name="LayoutRoot" Background="{TemplateBinding Background}">
+
+
+                                    <AdornerDecorator Grid.Row="1" KeyboardNavigation.IsTabStop="False">
+                                        <ContentPresenter
+                                            x:Name="MainContentPresenter"
+                                            Content="{TemplateBinding Content}"
+                                            KeyboardNavigation.TabNavigation="Cycle" />
+                                    </AdornerDecorator>
+                                    <ResizeGrip
+                                        x:Name="ResizeGrip"
+                                        Grid.Row="1"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Bottom"
+                                        IsTabStop="False"
+                                        Visibility="Hidden"
+                                        WindowChrome.ResizeGripDirection="BottomRight" />
+                                </Grid>
+                            </Border>
+                        </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsNonClientActive" Value="False">
                                 <Setter Property="BorderBrush" Value="#FF6F7785" />
@@ -291,7 +294,7 @@
                 </Setter.Value>
             </Setter>
 
-        </Style>-->
+        </Style>
 
     </Window.Resources>
     <Window.Style>
@@ -299,16 +302,22 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Window}">
-                        <Border>
+                        <Border BorderThickness="{TemplateBinding BorderThickness}">
                             <Grid>
-                                <AdornerDecorator>
-                                    <ContentPresenter Margin="{TemplateBinding Padding}" />
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid x:Name="TitlePlaceHolder" Height="{Binding Path=(SystemParameters.WindowNonClientFrameThickness).Top}" />
+                                <AdornerDecorator Grid.Row="1">
+                                    <ContentPresenter />
                                 </AdornerDecorator>
-                                <ResizeGrip x:Name="WindowResizeGrip"
-                                        HorizontalAlignment="Right"
-                                        IsTabStop="false"
-                                        Visibility="Collapsed"
-                                        VerticalAlignment="Bottom" />
+                                <ResizeGrip
+                                    x:Name="WindowResizeGrip"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                                    IsTabStop="false"
+                                    Visibility="Collapsed" />
                             </Grid>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -317,7 +326,7 @@
                                     <Condition Property="ResizeMode" Value="CanResizeWithGrip" />
                                     <Condition Property="WindowState" Value="Normal" />
                                 </MultiTrigger.Conditions>
-                                <Setter Property="Visibility" TargetName="WindowResizeGrip" Value="Visible" />
+                                <Setter TargetName="WindowResizeGrip" Property="Visibility" Value="Visible" />
                             </MultiTrigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -328,5 +337,5 @@
     <!--<WindowChrome.WindowChrome>
         <WindowChrome />
     </WindowChrome.WindowChrome>-->
-    <Grid Background="Gray"/>
+    <Grid Background="Gray" />
 </Window>

@@ -27,10 +27,7 @@ namespace WindowChromeApplyRoundedCorners
             WindowHelper.SetCorners(this, preference);
             WindowChrome chrome = new WindowChrome
             {
-
-
                 GlassFrameThickness = new Thickness(borderThickness, SystemParameters.WindowNonClientFrameThickness.Top + borderThickness, borderThickness, borderThickness),
-                //ResizeBorderThickness = new Thickness(borderThickness)
             };
 
             switch (windowStyle)
@@ -48,7 +45,7 @@ namespace WindowChromeApplyRoundedCorners
                     break;
             }
             this.BorderThickness = new Thickness(borderThickness);
-            this.Padding = chrome.GlassFrameThickness;
+           
 
         }
 
