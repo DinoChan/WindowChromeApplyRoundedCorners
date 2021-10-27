@@ -36,8 +36,11 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="DWM_WINDOW_CORNER_PREFERENCE" />
-                <ListBox Grid.Row="1" SelectionMode="Single">
-                    <ListBoxItem>
+                <ListBox
+                    x:Name="CornerSelector"
+                    Grid.Row="1"
+                    SelectionMode="Single">
+                    <ListBoxItem IsSelected="True">
                         <StackPanel>
                             <TextBlock Text="DWMWCP_DEFAULT" />
                             <TextBlock Style="{StaticResource DescriptionStyle}" Text="Let the system decide whether or not to round window corners." />
@@ -65,22 +68,23 @@
 
                 <TextBlock Grid.Column="1" Text="Style" />
                 <StackPanel Grid.Row="1" Grid.Column="1">
-                    <ListBox SelectionMode="Single">
-                        <ListBoxItem Content="System Window" />
+                    <ListBox x:Name="StyleSelector" SelectionMode="Single">
+                        <ListBoxItem Content="System Window" IsSelected="True" />
                         <ListBoxItem Content="WindowChrome" />
                         <ListBoxItem Content="Styled WindowChrome" />
                     </ListBox>
 
                     <TextBlock Text="Border" />
-                    <ListBox SelectionMode="Single">
-                        <ListBoxItem Content="1 pixel" />
-                        <ListBoxItem Content="2 pixels" />
-                        <ListBoxItem Content="10 pixels" />
+                    <ListBox x:Name="BorderSelector" SelectionMode="Single">
+                        <ListBoxItem Content="1 pixel" IsSelected="True" />
+                        <ListBoxItem Content="3 pixels" />
+                        <ListBoxItem Content="20 pixels" />
                     </ListBox>
                 </StackPanel>
                 <Button
                     Grid.RowSpan="2"
                     Grid.Column="2"
+                    Click="OnShowWindow"
                     Content="Show Window" />
             </Grid>
         </Grid>

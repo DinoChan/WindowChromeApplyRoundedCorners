@@ -24,5 +24,17 @@ namespace WindowChromeApplyRoundedCorners
         {
             InitializeComponent();
         }
+
+        private void OnShowWindow(object sender, RoutedEventArgs e)
+        {
+            new CustomWindow((DWM_WINDOW_CORNER_PREFERENCE)CornerSelector.SelectedIndex, (WindowStyle)StyleSelector.SelectedIndex,
+                BorderSelector.SelectedIndex switch
+                {
+                    0 => 1d,
+                    1 => 3d,
+                    2 => 20d,
+                    _ => 0d
+                }).Show();
+        }
     }
 }

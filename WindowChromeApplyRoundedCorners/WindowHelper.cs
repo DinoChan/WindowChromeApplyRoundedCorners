@@ -25,7 +25,7 @@ namespace WindowChromeApplyRoundedCorners
                                                          ref DWM_WINDOW_CORNER_PREFERENCE pvAttribute,
                                                          uint cbAttribute);
 
-        public static void SetCorner(Window window, DWM_WINDOW_CORNER_PREFERENCE preference)
+        public static void SetCorners(Window window, DWM_WINDOW_CORNER_PREFERENCE preference)
         {
             IntPtr hWnd = new WindowInteropHelper(Window.GetWindow(window)).EnsureHandle();
             var attribute = DWMWINDOWATTRIBUTE.DWMWA_WINDOW_CORNER_PREFERENCE;

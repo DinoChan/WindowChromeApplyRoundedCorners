@@ -4,7 +4,7 @@ using System.Windows.Media;
 
 namespace WindowChromeApplyRoundedCorners
 {
-    internal class WindowService
+    public class WindowService
     {
         public static readonly DependencyProperty IsBindingToSystemCommandsProperty =
             DependencyProperty.RegisterAttached("IsBindingToSystemCommands", typeof(bool), typeof(WindowService), new PropertyMetadata(default(bool), OnIsBindingToSystemCommandsChanged));

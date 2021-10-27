@@ -6,7 +6,7 @@ using System.Windows.Media;
 
 namespace WindowChromeApplyRoundedCorners
 {
-    internal static class DpiHelper
+    public static class DpiHelper
     {
         [ThreadStatic]
         private static Matrix _transformToDevice;
