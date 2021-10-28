@@ -286,13 +286,13 @@
                                 <Setter TargetName="RestoreButton" Property="Visibility" Value="Collapsed" />
                             </Trigger>
 
-                            <MultiTrigger>
+                            <!--<MultiTrigger>
                                 <MultiTrigger.Conditions>
                                     <Condition Property="ResizeMode" Value="CanResizeWithGrip" />
                                     <Condition Property="WindowState" Value="Normal" />
                                 </MultiTrigger.Conditions>
                                 <Setter TargetName="ResizeGrip" Property="Visibility" Value="Visible" />
-                            </MultiTrigger>
+                            </MultiTrigger>-->
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
