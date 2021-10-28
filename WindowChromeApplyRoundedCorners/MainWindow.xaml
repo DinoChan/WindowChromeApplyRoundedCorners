@@ -217,6 +217,7 @@
 
 
             <Grid>
+               
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition />
@@ -263,14 +264,20 @@
                     Text="Style" />
                 <StackPanel Grid.Row="1" Grid.Column="1">
                     <ListBox x:Name="StyleSelector" SelectionMode="Single">
-                        <ListBoxItem Content="System Window" IsSelected="True" />
+                        <ListBoxItem
+                            BorderThickness="0"
+                            Content="System Window"
+                            IsSelected="True" />
                         <ListBoxItem Content="WindowChrome" />
                         <ListBoxItem Content="Styled WindowChrome" />
                     </ListBox>
 
                     <TextBlock Style="{StaticResource TitleStyle}" Text="Border" />
                     <ListBox x:Name="BorderSelector" SelectionMode="Single">
-                        <ListBoxItem Content="1 pixel" IsSelected="True" />
+                        <ListBoxItem
+                            BorderThickness="0"
+                            Content="1 pixel"
+                            IsSelected="True" />
                         <ListBoxItem Content="3 pixels" />
                         <ListBoxItem Content="20 pixels" />
                     </ListBox>
