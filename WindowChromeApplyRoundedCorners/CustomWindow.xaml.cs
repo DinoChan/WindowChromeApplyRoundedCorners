@@ -36,17 +36,17 @@ namespace WindowChromeApplyRoundedCorners
                     break;
                 case WindowChromeApplyRoundedCorners.WindowStyle.WindowChrome:
                     WindowChrome.SetWindowChrome(this, chrome);
+                    this.Style = Resources["WindowChromeStyle"] as Style;
+                    this.BorderThickness = new Thickness(borderThickness);
                     break;
                 case WindowChromeApplyRoundedCorners.WindowStyle.StyledWindowChrom:
                     WindowChrome.SetWindowChrome(this, chrome);
-                    this.Style = Resources["WindowStyle"] as Style;
+                    this.Style = Resources["CustomWindowStyle"] as Style;
+                    this.BorderThickness = new Thickness(borderThickness);
                     break;
                 default:
                     break;
             }
-            this.BorderThickness = new Thickness(borderThickness);
-           
-
         }
 
         private readonly IntPtr _trueValue = new IntPtr(1);
