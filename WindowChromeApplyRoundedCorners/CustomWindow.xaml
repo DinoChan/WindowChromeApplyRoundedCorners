@@ -340,8 +340,9 @@
     <!--<WindowChrome.WindowChrome>
         <WindowChrome />
     </WindowChrome.WindowChrome>-->
-    <Grid Background="Gray" >
-        <Border BorderThickness="1" BorderBrush="Aquamarine"/>
+    <Grid Background="White" >
+        <!--<Border BorderThickness="1" BorderBrush="Aquamarine"/>-->
+        <!--<Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="OK" Height="26" Width="80"/>-->
     </Grid>
         
 </Window>
