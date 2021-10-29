@@ -33,14 +33,17 @@ namespace WindowChromeApplyRoundedCorners
             switch (windowStyle)
             {
                 case WindowChromeApplyRoundedCorners.WindowStyle.Ststem:
+                    Title = "System Window";
                     break;
                 case WindowChromeApplyRoundedCorners.WindowStyle.WindowChrome:
                     WindowChrome.SetWindowChrome(this, chrome);
+                    Title = "WindowChrome";
                     this.Style = Resources["WindowChromeStyle"] as Style;
                     this.BorderThickness = new Thickness(borderThickness);
                     break;
                 case WindowChromeApplyRoundedCorners.WindowStyle.StyledWindowChrom:
                     WindowChrome.SetWindowChrome(this, chrome);
+                    Title = "Styled WindowChrome";
                     this.Style = Resources["CustomWindowStyle"] as Style;
                     this.BorderThickness = new Thickness(borderThickness);
                     break;
