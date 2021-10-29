@@ -30,9 +30,10 @@ namespace WindowChromeApplyRoundedCorners
             new CustomWindow((DWM_WINDOW_CORNER_PREFERENCE)CornerSelector.SelectedIndex, (WindowStyle)StyleSelector.SelectedIndex,
                 BorderSelector.SelectedIndex switch
                 {
-                    0 => 1d,
-                    1 => 3d,
-                    2 => 20d,
+                    0 => 0d,
+                    1 => 1d,
+                    2 => 3d,
+                    3 => 20d,
                     _ => 0d
                 }).Show();
         }

@@ -340,5 +340,8 @@
     <!--<WindowChrome.WindowChrome>
         <WindowChrome />
     </WindowChrome.WindowChrome>-->
-    <Grid Background="Gray" />
+    <Grid Background="Gray" >
+        <Border BorderThickness="1" BorderBrush="Aquamarine"/>
+    </Grid>
+        
 </Window>

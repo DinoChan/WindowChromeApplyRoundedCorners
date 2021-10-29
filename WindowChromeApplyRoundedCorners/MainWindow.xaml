@@ -49,7 +49,8 @@
                             <ScrollViewer
                                 Padding="{TemplateBinding Padding}"
                                 BorderThickness="0"
-                                Focusable="false">
+                                Focusable="false"
+                                HorizontalScrollBarVisibility="Disabled">
                                 <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                             </ScrollViewer>
                         </Border>
@@ -217,10 +218,11 @@
 
 
             <Grid>
-               
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -231,6 +233,7 @@
                 <ListBox
                     x:Name="CornerSelector"
                     Grid.Row="1"
+                    Width="300"
                     SelectionMode="Single">
                     <ListBoxItem BorderThickness="0" IsSelected="True">
                         <StackPanel>
@@ -276,16 +279,17 @@
                     <ListBox x:Name="BorderSelector" SelectionMode="Single">
                         <ListBoxItem
                             BorderThickness="0"
-                            Content="1 pixel"
+                            Content="0 pixel"
                             IsSelected="True" />
+                        <ListBoxItem Content="1 pixel" />
                         <ListBoxItem Content="3 pixels" />
                         <ListBoxItem Content="20 pixels" />
                     </ListBox>
                 </StackPanel>
                 <Button
-                    Grid.RowSpan="2"
-                    Grid.Column="2"
-                    Margin="12,30,0,8"
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    Margin="8"
                     Click="OnShowWindow"
                     Content="Show Window" />
             </Grid>
